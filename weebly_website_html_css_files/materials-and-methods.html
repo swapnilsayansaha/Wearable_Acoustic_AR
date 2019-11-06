@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Materials and Methods - MREarable - Integrating Spatial Audio in a Mixed Reality Environment through Earable Sensor Modalities</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		
+		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/sites.css?buildTime=1234" />
+<link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/old/fancybox.css?1234" />
+<link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/social-icons.css?buildtime=1234" media="screen,projection" />
+<link rel="stylesheet" type="text/css" href="files/main_style.css?1573006368" title="wsite-theme-css" />
+
+<link href='http://fonts.googleapis.com/css?family=Amaranth:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Amaranth:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Amaranth:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Amaranth:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Amaranth:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Amaranth:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<style type='text/css'>
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-family:"Amaranth" !important;}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {color:#2a2a2a !important;}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{font-family:"Montserrat" !important;}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-family:"Amaranth" !important;letter-spacing: 0px !important;}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{font-family:"Montserrat" !important;font-weight:400 !important;}
+#wsite-title {font-family:"Amaranth" !important;font-style:normal !important;text-transform:  none !important;letter-spacing: 0px !important;}
+.wsite-menu-default a {font-family:"Amaranth" !important;}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-family:"Amaranth" !important;letter-spacing: 1px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {font-family:"Amaranth" !important;color:#2a2a2a !important;text-transform:  none !important;letter-spacing: 0px !important;}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {font-family:"Lora" !important;}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-size:18px !important;line-height:17px !important;}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{font-size:13px !important;}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-size:30px !important;line-height:6px !important;}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{font-size:11px !important;}
+#wsite-title {font-size:17px !important;}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-size:90px !important;line-height:25px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {font-size:22px !important;line-height:20px !important;}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {font-size:30px !important;}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+}</style>
+
+		<script>
+var STATIC_BASE = '//cdn1.editmysite.com/';
+var ASSETS_BASE = '//cdn2.editmysite.com/';
+var STYLE_PREFIX = 'wsite';
+</script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+
+<script type="text/javascript" src="http://cdn2.editmysite.com/js/lang/en/stl.js?buildTime=1234&"></script>
+<script src="http://cdn2.editmysite.com/js/site/main.js?buildTime=1234"></script><script type="text/javascript">
+		function initCustomerAccountsModels() {
+					(function(){_W.setup_rpc({"url":"\/ajax\/api\/JsonRPC\/CustomerAccounts\/","actions":{"CustomerAccounts":[{"name":"login","len":2,"multiple":false,"standalone":false},{"name":"logout","len":0,"multiple":false,"standalone":false},{"name":"getSessionDetails","len":0,"multiple":false,"standalone":false},{"name":"getAccountDetails","len":0,"multiple":false,"standalone":false},{"name":"getOrders","len":0,"multiple":false,"standalone":false},{"name":"register","len":4,"multiple":false,"standalone":false},{"name":"emailExists","len":1,"multiple":false,"standalone":false},{"name":"passwordReset","len":1,"multiple":false,"standalone":false},{"name":"passwordUpdate","len":3,"multiple":false,"standalone":false},{"name":"validateSession","len":1,"multiple":false,"standalone":false}]},"namespace":"_W.CustomerAccounts.RPC"});
+_W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":"_W.CustomerAccounts.BackboneModelData","collection_namespace":"_W.CustomerAccounts.BackboneCollectionData","bootstrap_namespace":"_W.CustomerAccounts.BackboneBootstrap","models":{"CustomerAccounts":{"_class":"CustomerAccounts.Model.CustomerAccounts","defaults":null,"validation":null,"types":null,"idAttribute":null,"keydefs":null}},"collections":{"CustomerAccounts":{"_class":"CustomerAccounts.Collection.CustomerAccounts"}},"bootstrap":[]});
+})();
+		}
+		if(document.createEvent && document.addEventListener) {
+			var initEvt = document.createEvent('Event');
+			initEvt.initEvent('customerAccountsModelsInitialized', true, false);
+			document.dispatchEvent(initEvt);
+		} else if(document.documentElement.initCustomerAccountsModels === 0){
+			document.documentElement.initCustomerAccountsModels++
+		}
+		</script>
+		<script type="text/javascript"> _W = _W || {}; _W.securePrefix='UNSET'; </script><script>_W = _W || {};
+			_W.customerLocale = "en_US";
+			_W.storeName = null;
+			_W.storeCountry = "US";
+			_W.storeCurrency = "USD";
+			_W.storeEuPrivacyPolicyUrl = "";
+			com_currentSite = "530359163563960245";
+			com_userID = "48611635";</script><script type="text/javascript">_W.configDomain = "www.weebly.com";</script><script>_W.relinquish && _W.relinquish()</script>
+<script type="text/javascript" src="http://cdn2.editmysite.com/js/lang/en/stl.js?buildTime=1234&"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
+	var IS_ARCHIVE = 1;
+	var DISABLE_NAV_MORE = 1;
+	function initFlyouts(){
+		initPublishedFlyoutMenus(
+			[{"id":"882454809154185041","title":"Project Abstract","url":"project-abstract.html","target":"","nav_menu":false,"nonclickable":false},{"id":"249509689683143900","title":"Materials and Methods","url":"materials-and-methods.html","target":"","nav_menu":false,"nonclickable":false},{"id":"990999752696982730","title":"Results","url":"results.html","target":"","nav_menu":false,"nonclickable":false},{"id":"595281588527961028","title":"Conclusion and Future Work","url":"conclusion-and-future-work.html","target":"","nav_menu":false,"nonclickable":false},{"id":"905329364918407754","title":"Related Work","url":"related-work.html","target":"","nav_menu":false,"nonclickable":false},{"id":"500750823166447332","title":"References","url":"references.html","target":"","nav_menu":false,"nonclickable":false}],
+			"249509689683143900",
+			'',
+			'active',
+			false,
+			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
+			{"hasCustomMembership":true,"hasCustomMinicart":true}
+		)
+	}
+//-->
+</script>
+		
+		
+	</head>
+	<body class="header-page  wsite-page-materials-and-methods  sticky-nav-on full-width-on header-scroll-animate-off  wsite-theme-light"><div class="wrapper">
+    <div class="unite-header">
+      <div class="nav-wrap">
+        <div class="container">
+          <a class="hamburger" aria-label="Menu" href="#"><span></span></a>
+          <div class="logo"><span class="wsite-logo">
+
+	<a href="">
+	
+	<span id="wsite-title">MREarable - Integrating Spatial Audio in a Mixed Reality Environment through Earable Sensor Modalities</span>
+	
+	</a>
+
+</span></div>
+          <div class="nav desktop-nav"><ul class="wsite-menu-default">
+		<li id="pg882454809154185041" class="wsite-menu-item-wrap">
+			<a
+						href="project-abstract.html"
+				class="wsite-menu-item"
+				>
+				Project Abstract
+			</a>
+			
+		</li>
+		<li id="active" class="wsite-menu-item-wrap">
+			<a
+						href="materials-and-methods.html"
+				class="wsite-menu-item"
+				>
+				Materials and Methods
+			</a>
+			
+		</li>
+		<li id="pg990999752696982730" class="wsite-menu-item-wrap">
+			<a
+						href="results.html"
+				class="wsite-menu-item"
+				>
+				Results
+			</a>
+			
+		</li>
+		<li id="pg595281588527961028" class="wsite-menu-item-wrap">
+			<a
+						href="conclusion-and-future-work.html"
+				class="wsite-menu-item"
+				>
+				Conclusion and Future Work
+			</a>
+			
+		</li>
+		<li id="pg905329364918407754" class="wsite-menu-item-wrap">
+			<a
+						href="related-work.html"
+				class="wsite-menu-item"
+				>
+				Related Work
+			</a>
+			
+		</li>
+		<li id="pg500750823166447332" class="wsite-menu-item-wrap">
+			<a
+						href="references.html"
+				class="wsite-menu-item"
+				>
+				References
+			</a>
+			
+		</li>
+</ul>
+</div>
+          <div class="nav membership-cart"><span id="member-login" class="wsite-custom-membership-wrapper"><a href="#" id="wsite-nav-login-a"></a></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-wrap">
+      <div class="wsite-elements wsite-not-footer wsite-header-elements">
+	<div class="wsite-section-wrap">
+	<div  class="wsite-section wsite-header-section wsite-section-bg-color wsite-section-effect-reveal" style="height: auto;background-color: #ffffff;background-image: none;is_customized: 1;" >
+		<div class="wsite-section-content">
+			
+          <div class="container">
+            <div class="banner">
+				<div class="wsite-section-elements">
+					<h2 class="wsite-content-title"><font color="#2a2a2a">Materials and Methods</font></h2>
+				</div>
+			</div>
+          </div>
+      
+		</div>
+		<div class=""></div>
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+    <div class="main-wrap">
+      <div id="wsite-content" class="wsite-elements wsite-not-footer">
+	<div class="wsite-section-wrap">
+	<div class="wsite-section wsite-body-section wsite-background-13"  >
+		<div class="wsite-section-content">
+          <div class="container">
+			<div class="wsite-section-elements">
+				<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/overall_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:justify;"><span><span>MREable takes in inertial data in real-time from eSense earable sensors, pre-processes and inputs the inertial frames into a trained regressor and receives the head-pose as the output. The head-pose data is then fed into a head-related transfer function (HRTF) in the appropriate form in the desired platform (elevation and azimuth angles in the VR/MR platform), which outputs binaural/spatial audio to the earables based on the head-pose.</span></span></div>
+
+<h2 class="wsite-content-title">Data Collection Framework:</h2>
+
+<div class="wsite-spacer" style="height:10px;"></div>
+
+<div class="paragraph" style="text-align:justify;">To collect head-pose training data, a subject would be instructed to sit at a particular position (called the origin, say (<em>x</em>'<em>,y',z')</em>)&nbsp;in the experimental testbed with the appropriate earables worn on both ears. The left earable, which houses the 6DOF IMU, shall transmit inertial data to an android app developed for mining eSense IMU data. The right earable shall be used to record sound being emanated from a speaker with the centroid at a fixed point (<em>x'',y'',z''</em>). In addition, the subject shall wear a hat with OptiTrack IR markers mounted in a triangular configuration. The subject will then be asked to look at several marked points in the 3D space in the experimental testbed with respect to&nbsp;<em>(x'',y'',z''</em>), i.e. the user shall initially fix his head towards the origin and then move his head towards a particular point <em>(x''',y''',z''')</em>.&#8203; Two types of transitions need to be taken into account:<br />&#8203;<ul><li>Head movements from origin to marked point and vice versa.</li><li>Head movements from origin to multiple marked points and vice versa.</li></ul><br />In the experimental testbed, there are 29 marked points and we expect to collect at least 50 distinct head-pose inertial frames per subject. Each user shall keep his gaze fixed at the marked points for at least 1 second.<br /><br />&#8203;The OptiTrack system shall consist of 6 IR cameras and would serve as the ground truth for the eSense inertial data, with a screen recorder application recording visual cues and the Motive:Tracker software recording inertial data of the rigid body formed by the markers. In order to synchronize all of the data collection systems, timestamping shall be used such that the frameworks synchronize time with their respective local system clocks already synchronized with time from the Internet.<br /><br />In order to characterize the position of each marked point in the 3D experimental testbed, we plan to use either an inclinometer with a laser pointer attached to get the azimuth and elevation angles directly or if possible, a laser rangefinder. It is important to note that since height of each subject shall vary, it is important to designate the azimuth and elevation angles of each point with respect to the origin separately for each subject.<br /><br />In addition, we also aim to create a HAR dataset using the earable sensors. Using the same subjects and an optical camera for ground truth, we intend to create a database of several fine-grained activities such as activities relevant to mouth motion and limb motions pertinent to VR/MR context as well as activities such as walking, jogging, climbing stairs etc. Such a dataset maybe useful for future research where the user is able to move physically in a MR context rather than being bounded to head-movement.<br /><br /></div>
+
+<h2 class="wsite-content-title">Preprocessing, Training and HRTF:&nbsp;</h2>
+
+<div class="paragraph" style="text-align:justify;"><span style="color:rgb(42, 42, 42)">The data is fed into a deep learning model (as well as other regressors for performance evaluation) to train the model and once the model is trained, during the live system stage, the inertial value is filtered using the model to predict the head pose estimation.&nbsp;</span><span style="color:rgb(42, 42, 42)">The deep learning model will be supervised and based on previous work we will try using RNN to exploit the time-based data. The data will have a temporal correlation as it is a time sequence, so to use this information a model like RNN should be preferred. The model will be implemented using a combination of MATLAB and Tensorflow initially and moved to Tensorflow Lite to deploy on mobile devices.</span><br /><br /><span style="color:rgb(42, 42, 42)">The head pose estimation is presented in the form of altitude and elevation and direction appropriate to the HRTF. The HRTF is then interpolated to the point specified by the IMU and filters are made for left and right audio.&nbsp;HRTF or head related transfer function is the response of how human ear perceives the location of the sound. A pair of two HRTF functions is used to generate binaural audio (the way human ear perceives the differential sounds from source in two ears). The HRTF is defined as the ratio of the Fourier transform of the sound pressure developed at the ear to the Fourier transform of the sound pressure developed at the location of the center of the listener&rsquo;s head with the listener absent. The HRTF is a function of the elevation and the azimuthal angle relative to the sound source apart from parameters like distance to the speaker and sometimes diameter of the head. The HRTF dataset is usually available for a wide range of points developed using in ear microphones and multiple test users. In our project we use the ARI HRTF database which has the data points for 1550 positions of over 200 subjects. The resolution is 2.5 degrees for azimuthal range of (-45 to 45 degrees) and a resolution of 5 degrees outside the space, and at fixed elevations between -30 degrees to 80 degrees. The HRTF for a point outside the range is found using interpolation and MATLAB provides a function for this.<br /><br />In order to achieve our first milestone, the trained model shall be a regressor which will predict the final head pose based on the input sequence (live input stream). The predicted head pose then will be fed to MATLAB. For spatial audio generation, the interpolated HRTF is calculated at the position of the head tracked. Using the HRTF two FIR Filters are made for each channel of audio. The audio signal is then convolved with the filter to get the final binaural audio from the mono or stereo audio file.</span></div>
+
+<h2 class="wsite-content-title">Integrating Inertial Framework and Spatial Audio with VR/MR Platforms:</h2>
+
+<div class="wsite-spacer" style="height:10px;"></div>
+
+<div class="paragraph" style="text-align:justify;"><span><span>To avoid blurring of audio clarity during user motion and the high cost of 360&deg; ambisonic microphones, we use object-oriented methods to build our audio environment where all sound sources can be rendered in real-time.&nbsp;<br /><br />&#8203;</span></span><span><span>We first build the fundamental visual virtual environment in Unity, with reasonable metrics and coordinates of objects, because a visual interface bundled with audio is more user-friendly and convenient for troubleshooting during development. On the GAudioWorks platform, we add sound sources with azimuth (lateral position), elevation (height position) and distance (shall not come from IMU but be managed programmatically) from a first-person perspective, which is ideal binaural effect testing in a static scene.&nbsp;<br />&#8203;</span></span><br /><span><span>We use AudioListener and the AudioSource to capture the distance and angles. Besides, we utilize MRTK2 (Mixed Reality Toolkit 2) provided by Unity, which enables a richer human-computer interface, including the user&rsquo;s location and orientation rendered via IMU in eSense earables. What we do is integrate the user data into the modulation and regulation of the gains of the left and right ear contributions. After successful implementation on the Samsung VR headset, we adapt the user interface suitable for eSense Earable and make it possible to handle the system with only earables and smartphone.</span></span><br /><br /></div>
+
+<div class="paragraph" style="text-align:center;"><font size="2"><span style="color:rgb(42, 42, 42); font-weight:bold">Project by&nbsp;</span><a href="http://nesl.ee.ucla.edu/people/511" target="_blank">Swapnil Sayan Saha</a><span style="color:rgb(42, 42, 42); font-weight:bold">,&nbsp;</span><a href="http://nesl.ee.ucla.edu/people/499" target="_blank">Siyou Pei</a><span style="color:rgb(42, 42, 42); font-weight:bold">&nbsp;and Vivek Jain for ECE M202A (Fall 2019) at UCLA under supervision of Dr.&nbsp;</span><a href="http://nesl.ee.ucla.edu/people/1" target="_blank">Mani B. Srivastava</a><span style="color:rgb(42, 42, 42); font-weight:bold">.<br />&#8203;</span><br /><span style="color:rgb(42, 42, 42); font-weight:bold">Site powered by&nbsp;</span><a href="https://github.com" target="_blank">Github</a><span style="color:rgb(42, 42, 42); font-weight:bold">&nbsp;and&nbsp;</span><a href="https://www.weebly.com" target="_blank">Weebly.</a></font></div>
+			</div>
+		</div>
+      </div>
+
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer">Create a <a target="_top" href="http://www.weebly.com/">free web site</a> with <a target="_top" href="http://www.weebly.com/" title="free web site">Weebly</a></div>
+    </div>
+  </div>
+
+  <div class="nav mobile-nav">
+    <a class="hamburger" aria-label="Menu" href="#"><span></span></a>
+    <ul class="wsite-menu-default">
+    		<li id="pg882454809154185041" class="wsite-menu-item-wrap">
+    			<a
+    						href="project-abstract.html"
+    				class="wsite-menu-item"
+    				>
+    				Project Abstract
+    			</a>
+    			
+    		</li>
+    		<li id="active" class="wsite-menu-item-wrap">
+    			<a
+    						href="materials-and-methods.html"
+    				class="wsite-menu-item"
+    				>
+    				Materials and Methods
+    			</a>
+    			
+    		</li>
+    		<li id="pg990999752696982730" class="wsite-menu-item-wrap">
+    			<a
+    						href="results.html"
+    				class="wsite-menu-item"
+    				>
+    				Results
+    			</a>
+    			
+    		</li>
+    		<li id="pg595281588527961028" class="wsite-menu-item-wrap">
+    			<a
+    						href="conclusion-and-future-work.html"
+    				class="wsite-menu-item"
+    				>
+    				Conclusion and Future Work
+    			</a>
+    			
+    		</li>
+    		<li id="pg905329364918407754" class="wsite-menu-item-wrap">
+    			<a
+    						href="related-work.html"
+    				class="wsite-menu-item"
+    				>
+    				Related Work
+    			</a>
+    			
+    		</li>
+    		<li id="pg500750823166447332" class="wsite-menu-item-wrap">
+    			<a
+    						href="references.html"
+    				class="wsite-menu-item"
+    				>
+    				References
+    			</a>
+    			
+    		</li>
+    </ul>
+  </div>
+
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'nxe1ajf',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+
+	<script type="text/javascript" src="files/theme/plugins.js"></script>
+  <script type="text/javascript" src="files/theme/custom.js"></script>
+    <div id="customer-accounts-app"></div>
+    <script src="http://cdn2.editmysite.com/js/site/main-customer-accounts-site.js?buildTime=1234"></script>
+
+		
+	</body>
+</html>
