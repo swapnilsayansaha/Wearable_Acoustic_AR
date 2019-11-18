@@ -1,5 +1,6 @@
 %this code takes in the .mat dataset files and plots the acc vs time and%
 %angular velocity vs time plots%
+
 figure
 subplot 311
 plot(Out(:,9),Out(:,2));
