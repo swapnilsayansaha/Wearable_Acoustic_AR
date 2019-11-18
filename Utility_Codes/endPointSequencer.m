@@ -5,8 +5,6 @@
 %To use it, just update the path and filename variables with the directory%
 %where your endpoint excel file is%
 
-%Code woul
-
 path = "/Users/swapnilsayansaha/Desktop/data endpoints/subject 15/";
 filename = "yoyoFriend.xlsx";
 matfilename = "Range.mat";
