@@ -5,6 +5,7 @@
 
 %RAW3 is the matlab file name%
 
+
 RAW3 = RAW3(all(~isnan(RAW3),2),:); % for nan - rows
 d = datetime(RAW3(:,1),'ConvertFrom','epochtime','TicksPerSecond',1e3,'Format','dd-MMM-yyyy HH:mm:ss.SSSS','TimeZone','UTC');
 d.TimeZone='-08:00';
