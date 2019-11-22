@@ -2,9 +2,9 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, div.paragraph, blockq
 ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fieldset, input { margin: 0; padding: 0; }
  .wsite-form-field input[type='text'], .wsite-form-field input[type='email'], .wsite-form-field textarea, .wsite-form-field select, .wsite-form-field input[type='radio'], .wsite-form-field input[type='checkbox'], .wsite-com-product-option-groups input[type='text'], .wsite-com-product-option-groups input[type='email'], .wsite-com-product-option-groups textarea, .wsite-com-product-option-groups select, .wsite-com-product-option-groups input[type='radio'], .wsite-com-product-option-groups input[type='checkbox'] { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; text-shadow: none; }
  textarea { resize: none; }
- @font-face { font-family: 'Unite'; src: url('theme/fonts/Unite_500.otf?1573091954') format('opentype'); font-weight: 500; font-style: normal; }
- @font-face { font-family: 'Unite'; src: url('theme/fonts/Unite_500_it.otf?1573091954') format('opentype'); font-weight: 500; font-style: italic; }
- @font-face { font-family: 'Unite'; src: url('theme/fonts/Unite_700.otf?1573091954') format('opentype'); font-weight: 700; }
+ @font-face { font-family: 'Unite'; src: url('theme/fonts/Unite_500.otf?1574448366') format('opentype'); font-weight: 500; font-style: normal; }
+ @font-face { font-family: 'Unite'; src: url('theme/fonts/Unite_500_it.otf?1574448366') format('opentype'); font-weight: 500; font-style: italic; }
+ @font-face { font-family: 'Unite'; src: url('theme/fonts/Unite_700.otf?1574448366') format('opentype'); font-weight: 700; }
  html { height: 100%; }
  body { width: 100%; height: 100%; background: #ffffff; color: #000000; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
  a { color: inherit; text-decoration: none; }
@@ -78,7 +78,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  #wsite-menus .wsite-menu li a { background: transparent; color: #000000; font-family: "Unite", sans-serif; font-size: 12px; font-weight: normal; line-height: normal; text-transform: uppercase; letter-spacing: 0.05em; border: none; }
  #wsite-menus .wsite-menu li a:hover { color: rgba(0,0,0,0.65); background: none; }
  #wsite-menus .wsite-menu-arrow { display: none; }
- .wsite-header-section, .banner-wrap.wsite-background { background: url(theme/images/default-bg.jpg?1573091954) no-repeat center center; background-size: cover; }
+ .wsite-header-section, .banner-wrap.wsite-background { background: url(theme/images/default-bg.jpg?1574448366) no-repeat center center; background-size: cover; }
  .header-page .wsite-header-section { height: 600px; }
  body.sticky-nav-on .wsite-header-section { height: 720px; }
  body.sticky-nav-on:not(.splash-page) .banner-wrap .container { padding: 180px 40px 60px; }
@@ -96,7 +96,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  .wsite-form-input, .wsite-search-element-input, .form-select, .wsite-form-field select, .wsite-com-product-option-groups select { height: auto; max-width: 370px; padding: 10px 20px !important; margin-bottom: 10px; background: transparent; border: 1px solid rgba(0,0,0,0.2); }
  .wsite-form-input:hover, .wsite-search-element-input:hover, .form-select:hover, .wsite-form-field select:hover, .wsite-com-product-option-groups select:hover { border-color: #000000; }
  .wsite-form-input:focus, .wsite-form-input--focus, .wsite-search-element-input:focus, .form-select:focus, .wsite-form-field select:focus, .wsite-com-product-option-groups select:focus { border-bottom: 1px solid #000000; }
- .form-select, .wsite-form-field select, .wsite-com-product-option-groups select { text-indent: 0.01px; text-overflow: ''; height: 40px; background: transparent url(theme/images/select-dropdown.png?1573091954) 97% center no-repeat; }
+ .form-select, .wsite-form-field select, .wsite-com-product-option-groups select { text-indent: 0.01px; text-overflow: ''; height: 40px; background: transparent url(theme/images/select-dropdown.png?1574448366) 97% center no-repeat; }
  .wsite-form-field input[type='radio'], .wsite-form-field input[type='checkbox'], .wsite-com-product-option-groups input[type='radio'], .wsite-com-product-option-groups input[type='checkbox'] { width: 20px; height: 20px; border: 1px solid rgba(0,0,0,0.3) !important; }
  .wsite-form-field input[type='radio']:hover, .wsite-form-field input[type='radio']:checked, .wsite-form-field input[type='checkbox']:hover, .wsite-form-field input[type='checkbox']:checked, .wsite-com-product-option-groups input[type='radio']:hover, .wsite-com-product-option-groups input[type='radio']:checked, .wsite-com-product-option-groups input[type='checkbox']:hover, .wsite-com-product-option-groups input[type='checkbox']:checked { border-color: #000000 !important; }
  .wsite-form-field input[type='radio'], .wsite-com-product-option-groups input[type='radio'] { border-radius: 100%; }
