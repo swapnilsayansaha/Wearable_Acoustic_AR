@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/EscapeRoom/Scenes/EscapeRoom_VS.unity
-  isLoaded: 1
-  isActive: 1
