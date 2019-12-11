@@ -1,4 +1,4 @@
-userTime = 120; %duration of demo
+userTime = 180; %duration of demo
 %binaural audio demo using MPU9250 and Arduino Nano
 a = arduino('COM5', 'ProMini328_5V', 'Libraries', 'I2C'); %check device port from device manager
 imu = mpu9250(a);
@@ -50,6 +50,7 @@ while toc < userTime
     yaw = ypr(end,1);
     pitch = ypr(end,2);
     desiredPosition = [yaw,pitch];
+    fprintf('Azimuth: %f, Elevation: %f\n',yaw,pitch);
     
         % Obtain a pair of HRTFs at the desired position.
     interpolatedIR = squeeze(interpolateHRTF(hrtfData,sourcePosition,desiredPosition));
