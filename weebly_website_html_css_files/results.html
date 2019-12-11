@@ -11,7 +11,7 @@
 		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/sites.css?buildTime=1234" />
 <link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/old/fancybox.css?1234" />
 <link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/social-icons.css?buildtime=1234" media="screen,projection" />
-<link rel="stylesheet" type="text/css" href="files/main_style.css?1574891290" title="wsite-theme-css" />
+<link rel="stylesheet" type="text/css" href="files/main_style.css?1576054493" title="wsite-theme-css" />
 
 <link href='http://fonts.googleapis.com/css?family=Amaranth:400,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
@@ -203,7 +203,7 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
           <div class="container">
             <div class="banner">
 				<div class="wsite-section-elements">
-					<h2 class="wsite-content-title"><font color="#2a2a2a">RESULTS</font>&#8203;</h2>
+					<h2 class="wsite-content-title">&#8203;<font color="#2a2a2a">RESULTS</font>&#8203;</h2>
 				</div>
 			</div>
           </div>
@@ -278,7 +278,7 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 <hr class="styled-hr" style="width:100%;"></hr>
 <div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
 
-<h2 class="wsite-content-title" style="text-align:center;">Headpose Dataset Parameters</h2>
+<h2 class="wsite-content-title" style="text-align:center;">Headpose Results:</h2>
 
 <div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
 	<table class="wsite-multicol-table">
@@ -317,11 +317,13 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 
 <div class="paragraph" style="text-align:center;"><span style="color:rgb(42, 42, 42)">Figure: Number of frames of all 27 targets for head movement from origin to target and target to origin (apart from these, there also exists target-target head movement).</span></div>
 
+<div class="paragraph">For head-pose estimation, To prevent overfitting 3-fold cross validation and 90:10 holdout (train:test) were utilized. Initially, we tested performance of several classifiers via trial-and-error. Afterwards, once we found out the base classifier to work on (based on classification accuracy), grid-search hyperparameter optimization was used for searching for ideal hyperparameters for the chosen classifier. 37 spatial features were extracted from the dataset.<br /><br />The hyperparameters include:<ul><li><strong>Eta</strong>: used for shrinking weights in each step similar to learning rate of Gradient Boosted models. Chosen range: [0.001, 0.01, 0.10]</li><li><strong>Min_child_weight:</strong> this controls the minimum sum of weights and tree splitting. This helps in preventing overfitting and larger value is chosen to make the model more conservative. Chosen range: [1, 3, 5, 7]</li><li><strong>Max_depth</strong>: This controls the depth of the tree, as the data is not too high, we restrict the depth to a small number and vary this to find optimal depth. Chosen range: [6, 15, 45]</li><li><strong>Gamma:</strong> As the tree is of low depth, gamma the regularization factor will help in improving test accuracy. The value is varied over [0, 1, 5].</li><li><strong>Colsample_bytree</strong>: this controls the number of features given to a tree and value varied between [0.5, 0.7, 0.8]</li><li><strong>N_estimators: </strong>This decides the number of trees to fit.</li></ul><br />For kalman filter, median delta motion errors of 8.3 and 5.6 degrees were observed in azimuth and elevation planes respectively. For machine learning approach, least mean absolute error (MAE) is 17.7 and 7.46 degrees and best classification accuracies of 91.93% and 96.88% in azimuth and elevation planes respectively were observed using XGBoost (grid search hyperparameter optimized and SMOTe-utilized). Obtained MAE is well within the human binaural sound localization range (+- 20 degrees).<br /><br /></div>
+
 <div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
 	<table class="wsite-multicol-table">
 		<tbody class="wsite-multicol-tbody">
 			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:35.78352180937%; padding:0 15px;">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
 					
 						
 
@@ -334,13 +336,29 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 
 <div class="paragraph" style="text-align:center;">Figure: Extracted 37 features from head-pose data</div>
 
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/l2normkf_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;">Figure: Kalman filter performance (real-time) in tracking head-pose.</div>
+
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:64.21647819063%; padding:0 15px;">
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
 					
 						
 
-<div class="paragraph" style="text-align:justify;"><ul><li>Initially, only elevation classifier is trained on 734 frames out of 1266 frames, binned into 20 degree buckets.</li></ul>&#8203;<br /><ul><li>1 Layer CNN with 32 filters followed by maxpooling layer gives an accuracy of 32% with an additional dense layer.</li></ul><br /><ul><li>Dense neural network (DNN) with two hidden layers (node size: 25 and 20), gives an accuracy of 40.54%.</li></ul><br /><ul><li>We used 3-fold cross validation and holdout (ratio: 90:10) to ensure our models don't overfit. Sanity check was also done by purposefully overfitting the data which gave no error.</li></ul><br /><ul><li>The XGBoost classifier (a boosted decision tree classifier) gives the best accuracy of over 74.57% (from 40.08%) after hyperparameter optimization via grid search.</li></ul><br /><ul><li>Reasons for low-accuracy: noisy data, variable sampling rate, inequal data points (due to missing data)</li></ul></div>
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/mlperf_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;">Figure: Head-pose classification performance of several classifiers on our head-pose dataset. '_H' denotes use of grid-search hyperparameter optimization.</div>
 
 
 					
@@ -348,6 +366,166 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 		</tbody>
 	</table>
 </div></div></div>
+
+<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"></hr>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+
+<h2 class="wsite-content-title" style="text-align:center;">Human Activity Results:</h2>
+
+<div class="wsite-spacer" style="height:11px;"></div>
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div class="paragraph" style="text-align:justify;"><span style="color:rgb(42, 42, 42)">For activity classification, a sliding window of 1 second with stride length of 0.5 seconds was chosen. 241 spatial features were extracted from 8002 frames of 9 activities. Explored classifiers include SVM, bagged trees, boosted trees, decision trees and shallow neural networks. To prevent overfitting, holdout validation (ratio: 85:15) was used. The hyperparameters of the classifiers (initially chosen via trial-and-error) are as follows:<br />&#8203;</span><ul><li><span style="color:rgb(42, 42, 42)"><strong>Bagged_45:</strong> Bagged decision trees; number of learners: 45; maximum number of splits: 8001.</span></li><li><span style="color:rgb(42, 42, 42)"><strong>Bagged_60:&nbsp;</strong>Bagged decision trees; number of learners: 60;&nbsp;maximum number of splits: 8001.</span></li><li><span style="color:rgb(42, 42, 42)"><strong>Adaboost_60:</strong> Boosted decision trees; number of learners: 45; maximum number of splits: 60; learning rate: 0.1;&nbsp;</span></li><li><span style="color:rgb(42, 42, 42)"><strong>Adaboost_80:</strong> Boosted decision trees; number of learners: 45; maximum number of splits: 80; learning rate: 0.1.</span></li><li><strong>QSVM:</strong> 1-vs-1 SVM with quadratic kernel; kernel scale: auto; box constraint level: 1;&nbsp;<span style="color:rgb(42, 42, 42)">standardize data: true.</span></li><li><strong>CSVM:</strong> 1-vs-1 SVM with cubic kernel; kernel scale: auto; box constraint level: 1;&nbsp;<span style="color:rgb(42, 42, 42)">standardize data: true.</span></li><li><strong>Coarse_DT:</strong> Coarse decision tree; maximum number of splits: 60; split criterion: maximum deviance reduction; surrogate decision splits: Find all.</li></ul><br />Later, Bayesian optimization without any training time limit was applied to CSM and Ensemble, using expected improvement per second plus as acquisition function and 30 iterations. The hyperparameter search ranges are as follows:<ul><li><strong>Ensemble: </strong>Method: Bag, Adaboost, RUSBoost; number of learners: [10,500]; learning rate: [0.001-1]; maximum number of splits: [1-8001]; number of predictors to sample: [1-241].</li><li><strong>SVM:&nbsp;</strong>Multiclass method: 1-vs-1 and 1-vs-all; box constraint level: [0.001,1000]; kernel scale: [0.001,1000]; kernel functions: Gausian, linear, quadratic, cubic; standardize data: true; false.</li></ul><br /><br />Bayesian optimization recommended using bagged decision trees with 377 learners, 11 predictors to sample and 7969 maximum number of splits and 1-vs-1 SVM with quadratic kernel, box constraint level of 1.0583 and data standardization set to true.<br /><br />Two-layer feedforward neural networks with <em>n</em>&nbsp;sigmoid hidden neurons in a single hidden layer and softmax output, were trained using scaled conjugate gradient backpropagation and using cross-entropy as performance parameter (calculations: MEX) using 70:15:15 holdout ratio for training, testing and validation sets (data division: random) The only hyperparameter here is the number of hidden neurons.<br /><br />Best supervised classification performance was obtained using CSVM, with a classification accuracy of 94.6% and SNN_15 (15 sigmoid neurons), with an test accuracy of 94.25%.&nbsp;<br /><br />&#8203;</div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/featuresactivity_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;">Figure: Extracted features of activity dataset. The x,y and z features were extracted for acc_x,y,z and gyr_x,y,z. Vector sum corresponds to l2 norm of acc_x,y,z and gyr_x,y,z. The total number of features add up to 241.</div>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/perf-classic_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;">Figure: Classification performance of various supervised classical classifiers.</div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/2perf-nn_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div class="paragraph" style="text-align:center;">Figure: Classification performance of neural classifiers (CE refers to Cross Entropy, E refers to accuracy, Tr, Te and V refers to Training, Testing and Validation respectively).</div>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/csvm-cm_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/roc_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div class="paragraph" style="text-align:center;">Figure: (Left) Confusion Matrix for CSVM. (Right) Example ROC curve for fall class for CSVM.</div>
+
+<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"></hr>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+
+<div class="wsite-spacer" style="height:20px;"></div>
+
+<h2 class="wsite-content-title" style="text-align:center;">Binaural Audio Results:</h2>
+
+<div class="wsite-spacer" style="height:21px;"></div>
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/4/8/6/1/48611635/binauralranges_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div class="paragraph" style="text-align:justify;">A problem with HRTF datasets is that they are not individualized. Different people have distinct sound localization capabilities, but it is generally assumed that the localization range is within +- 20 degrees. This is confirmed via our real-time localization test, where a subject aims to point out where a particular sound source might be based on hearing.<br /><br />We observed a median range of 40 degrees, which is +- 20 degrees of localization accuracy of humans. This complements the MAE of our classifier, which is much less than 40 degrees.<br /></div>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div class="wsite-spacer" style="height:50px;"></div>
+
+<div class="paragraph" style="text-align:center;"><font size="2"><span style="color:rgb(42, 42, 42); font-weight:bold">Project by&nbsp;</span><a href="http://nesl.ee.ucla.edu/people/511" target="_blank">Swapnil Sayan Saha</a><span style="color:rgb(42, 42, 42); font-weight:bold">,&nbsp;</span><a href="http://nesl.ee.ucla.edu/people/499" target="_blank">Siyou Pei</a><span style="color:rgb(42, 42, 42); font-weight:bold">&nbsp;and Vivek Jain for ECE M202A (Fall 2019) at UCLA under supervision of Dr.&nbsp;</span><a href="http://nesl.ee.ucla.edu/people/1" target="_blank">Mani B. Srivastava</a><span style="color:rgb(42, 42, 42); font-weight:bold">.<br />&#8203;</span><br /><span style="color:rgb(42, 42, 42); font-weight:bold">Site powered by&nbsp;</span><a href="https://github.com" target="_blank">Github</a><span style="color:rgb(42, 42, 42); font-weight:bold">&nbsp;and&nbsp;</span><a href="https://www.weebly.com" target="_blank">Weebly.</a></font></div>
 			</div>
 		</div>
       </div>
